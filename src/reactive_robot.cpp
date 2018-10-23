@@ -46,7 +46,7 @@ namespace reactive_robot
    					       distanceRightSide = realDistance;
    				     }
      			  }
-     			  else if(sensorAngle > 30 && sensorAngle <= 120)
+     			  else if(sensorAngle > 30 && sensorAngle <= 120){
               if(realDistance < distanceLeftSide){
                     robotAngle = sensorAngle;
                     distanceLeftSide = realDistance;

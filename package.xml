@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package>
+  <name>reactive_robot</name>
+  <version>0.0.1</version>
+  <description>The reactive_robot package</description>
+
+  <maintainer email="up201405955@fe.up.pt">Sara Fernandes</maintainer>
+
+  <license>TODO</license>
+  <url type="repository">https://github.com/saracouto1318/ROBO-FEUP</url>
+
+  <author email="up201405955@fe.up.pt">Sara Fernandes</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>stdr_msgs</build_depend>
+  <build_depend>nav_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>tf</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>stdr_msgs</run_depend>
+  <run_depend>nav_msgs</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+
+  <export></export>
+</package>
