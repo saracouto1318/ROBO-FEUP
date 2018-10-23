@@ -37,7 +37,6 @@ namespace reactive_robot
       float robotAngle = 0.0;
 
     	for(int i = 0; i < scan_.ranges.size(); i++){
-cout << scan_.ranges.size() << endl;
 			     float realDistance = scan_.ranges[i];
 			     float sensorAngle = scan_.angle_min + (scan_.angle_increment * (180/PI)) * i;
 
