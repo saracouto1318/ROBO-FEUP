@@ -16,3 +16,8 @@
    
  * 'roslaunch stdr_launchers reactive-robot.launch' for robot in V wall
  * 'roslaunch stdr_launchers reactive-robot-W.launch' for robot in W wall
+ 
+ * Initialize code
+   - Execute:
+   
+ * 'rosrun reactive_robot robot robot0 laser_0'
