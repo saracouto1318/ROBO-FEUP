@@ -60,12 +60,12 @@ void WallFollowing::callback(const sensor_msgs::LaserScan &msg)
 
 	float minDistance = min(distanceRightSide, distanceLeftSide);
 
-	const float MAX_SPEED = 5.0;
-	const float MIN_SPEED = 0.5;
-	const float SPEED_ERROR_STEP = 0.01;
+	const float MAX_SPEED = 6.5;
+	const float MIN_SPEED = 1.0;
 	const float GOAL_DISTANCE = 1.5;
 	const float K = -1.5;
 
+	// factor up to 1 to mod speed according to wall distance, where 1 is perfect conditions
 	float distanceFactor = min(minDistance, GOAL_DISTANCE)/GOAL_DISTANCE;
 
 	// values for angular speed
@@ -81,7 +81,7 @@ void WallFollowing::callback(const sensor_msgs::LaserScan &msg)
 		cout << "ALPHA: " << alpha << endl;
 
 		cout << "Distance factor: " << distanceFactor << endl;
-		cmd.linear.x = max(distanceFactor*MAX_SPEED-robotAngle*SPEED_ERROR_STEP, MIN_SPEED);
+		cmd.linear.x = max(distanceFactor*MAX_SPEED, MIN_SPEED);
 		//cmd.linear.x = MAX_SPEED;
 
 		//https://www.seas.upenn.edu/sunfest/docs/papers/12-bayer.pdf
