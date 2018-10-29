@@ -63,7 +63,7 @@ void WallFollowing::callback(const sensor_msgs::LaserScan &msg)
 	/**const float MAX_SPEED = 6.5;
 	const float MIN_SPEED = 1.0;*/
 	const float GOAL_DISTANCE = 1.5;
-	const float K = -16;
+	const float K = -15;
 
 	// factor up to 1 to mod speed according to wall distance, where 1 is perfect conditions
 	//float distanceFactor = min(minDistance, GOAL_DISTANCE)/GOAL_DISTANCE;
