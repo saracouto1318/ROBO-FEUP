@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include <stdio.h>
 #include "../include/reactive_robot/reactive_robot.h"
 
 using namespace std;
@@ -25,10 +27,28 @@ WallFollowing::WallFollowing(int argc, char **argv)
 
 WallFollowing::~WallFollowing(void) {}
 
+void writeToFile(char* filename, char* str)
+{
+	FILE *f = fopen(filename, "a");
+	if (f == NULL)
+	{
+		printf("Error opening file!\n");
+		exit(1);
+	}
+
+	/* print some text */
+	fprintf(f, "%s", str);
+
+	fclose(f);
+}
+
 void WallFollowing::callback(const sensor_msgs::LaserScan &msg)
 {
 	scan_ = msg;
 	geometry_msgs::Twist cmd;
+	double startTime = time(0);
+	//string filename = string("logs-") + startTime + "txt";
+	char filename[] = "logs.txt";
 
 	float distanceRightSide = numeric_limits<float>::max();
 	float distanceLeftSide = numeric_limits<float>::max();
@@ -95,6 +115,33 @@ void WallFollowing::callback(const sensor_msgs::LaserScan &msg)
 	}
 
 	cmd_vel_pub_.publish(cmd);
+
+	double timeDiff = time(0) - startTime;
+	char timeDiffStr[50];
+	snprintf(timeDiffStr, 50, "%f", timeDiff);
+	char minDistanceStr[20];
+	snprintf(minDistanceStr, 20, "%f", minDistance);
+	char alphaStr[20];
+	snprintf(alphaStr, 20, "%f", alpha);
+	char linearStr[20];
+	snprintf(linearStr, 20, "%f", cmd.linear.x);
+	char angularStr[20];
+	snprintf(angularStr, 20, "%f", cmd.angular.z);
+
+	char log[400];
+	strcpy(log, "=================\ntime = ");
+	strcat(log, timeDiffStr);
+	strcat(log, "\nwallDistance = ");
+	strcat(log, minDistanceStr);
+	strcat(log, "\nalpha = ");
+	strcat(log, alphaStr);
+	strcat(log, "\nSpeed:\n    linear = ");
+	strcat(log, linearStr);
+	strcat(log, "\n    angular = ");
+	strcat(log, angularStr);
+	strcat(log, "\n\n");
+	writeToFile(filename, log);
+	cout << log;
 }
 
 } // namespace reactive_robot
