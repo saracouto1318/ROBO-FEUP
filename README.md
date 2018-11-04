@@ -14,8 +14,10 @@
  * Initialize the STDR GUI + Map + Robot
    - Execute:
    
- * 'roslaunch stdr_launchers reactive-robot.launch' for robot in V wall
- * 'roslaunch stdr_launchers reactive-robot-W.launch' for robot in W wall
+ * 'roslaunch stdr_launchers reactive-robot.launch' for robot in V-squared wall
+ * 'roslaunch stdr_launchers reactive-robot2.launch' for robot in V-pointed wall
+ * 'roslaunch stdr_launchers reactive-robot-W.launch' for robot in W-squared wall
+ * 'roslaunch stdr_launchers reactive-robot-W.launch' for robot in W-pointed wall
  
  * Initialize code
    - Execute:
