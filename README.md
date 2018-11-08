@@ -15,7 +15,7 @@ To initialize the STDR GUI + Map + Robot execute one of the following commands:
  * 'roslaunch stdr_launchers reactive-robot.launch' for robot in V-squared wall
  * 'roslaunch stdr_launchers reactive-robot2.launch' for robot in V-pointed wall
  * 'roslaunch stdr_launchers reactive-robot-W.launch' for robot in W-squared wall
- * 'roslaunch stdr_launchers reactive-robot-W.launch' for robot in W-pointed wall
+ * 'roslaunch stdr_launchers reactive-robot-W2.launch' for robot in W-pointed wall
  
  To initialize the code execute the following command on a new terminal:
  
